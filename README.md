@@ -2,6 +2,8 @@
 
 [![Go CI/CD](https://github.com/chethanm99/GitHub-Actions-Container-Registry-CLI/actions/workflows/go-ci.yml/badge.svg)](https://github.com/chethanm99/GitHub-Actions-Container-Registry-CLI/actions/workflows/go-ci.yml)
 
+[![Go Version](https://img.shields.io/badge/Go-1.24.3-blue.svg)](https://go.dev/) [![Cobra](https://img.shields.io/badge/CLI-Cobra-blue)](https://cobra.dev/) [![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub%20Actions-brightgreen.svg)](https://github.com/features/actions)
+
 A simple and efficient command-line interface (CLI) for interacting with the GitHub Container Registry (ghcr.io).
 
 This tool allows you to quickly list container image tags for any public package hosted on GHCR directly from your terminal.
@@ -14,6 +16,16 @@ This tool allows you to quickly list container image tags for any public package
 - **Built with Go & Cobra:** A robust and modern CLI application built with industry-standard libraries.
 
 ---
+
+## Tech Stack
+
+This project is built with a focus on simplicity and performance using the following core technologies:
+
+- **Language:** [Go](https://go.dev/)
+- **CLI Framework:** [Cobra](https://cobra.dev/)
+- **CI/CD:** [GitHub Actions](https://github.com/features/actions)
+
+  ---
 
 ## Prerequisites
 
@@ -88,6 +100,8 @@ ghcr-cli ghcr list-tags \
   --user "your-github-username" \
   --token "ghp_YourClassicPersonalAccessToken"
 ```
+
+---
 
 ## CI/CD Pipeline
 
