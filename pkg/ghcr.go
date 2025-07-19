@@ -53,15 +53,14 @@ func getGhcrAuthToken(repo, username, pat string) (string, error) {
 	return authResp.Token, nil
 }
 
-// FIX: The function signature now correctly accepts THREE arguments: repo, username, and pat.
 func ListTags(repo, username, pat string) ([]string, error) {
-	// Step 1: Get the short-lived registry token.
+	// Get the short-lived registry token.
 	registryToken, err := getGhcrAuthToken(repo, username, pat)
 	if err != nil {
 		return nil, err
 	}
 
-	// Step 2: Use the registry token to list the tags.
+	// Use the registry token to list the tags.
 	tagsURL := fmt.Sprintf("https://ghcr.io/v2/%s/tags/list", repo)
 
 	req, err := http.NewRequest("GET", tagsURL, nil)
