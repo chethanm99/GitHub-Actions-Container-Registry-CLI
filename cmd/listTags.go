@@ -12,7 +12,7 @@ import (
 var (
 	repo     string
 	token    string
-	username string // FIX: The variable for username was missing.
+	username string 
 )
 
 var listTagsCmd = &cobra.Command{
@@ -21,7 +21,7 @@ var listTagsCmd = &cobra.Command{
 	Long: `This command is used to return a list of tags for a specified 
 	public container registry in the GitHub Container Registry.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		// --- Get the Token (PAT) ---
+		// Get the Token (PAT) 
 		pat := token
 		if pat == "" {
 			pat = os.Getenv("GITHUB_TOKEN")
@@ -30,8 +30,7 @@ var listTagsCmd = &cobra.Command{
 			return fmt.Errorf("authentication required: Please provide GitHub token via --token flag or the GITHUB_TOKEN environment variable")
 		}
 
-		// --- FIX: Get the Username ---
-		// This entire block was missing.
+		// Get the Username 
 		user := username
 		if user == "" {
 			user = os.Getenv("GITHUB_USER")
@@ -39,9 +38,7 @@ var listTagsCmd = &cobra.Command{
 		if user == "" {
 			return fmt.Errorf("username required: Please provide your GitHub username via the --user flag or the GITHUB_USER environment variable")
 		}
-
-		// --- FIX: Call the API with the correct 3 arguments ---
-		// This now matches the function definition in pkg/ghcr.go
+ 
 		tags, err := pkg.ListTags(repo, user, pat)
 		if err != nil {
 			return err
@@ -64,9 +61,6 @@ func init() {
 
 	// Flag for the token (PAT)
 	listTagsCmd.Flags().StringVarP(&token, "token", "t", "", "GitHub Classic PAT (or use GITHUB_TOKEN env var)")
-
-	// --- FIX: Define the flag for the username ---
-	// This flag definition was missing.
 	listTagsCmd.Flags().StringVarP(&username, "user", "u", "", "Your GitHub username (or use GITHUB_USER env var)")
 	listTagsCmd.MarkFlagRequired("user")
 }
