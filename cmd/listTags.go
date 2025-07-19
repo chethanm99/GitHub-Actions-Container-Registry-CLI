@@ -54,12 +54,8 @@ var listTagsCmd = &cobra.Command{
 
 func init() {
 	ghcrCmd.AddCommand(listTagsCmd)
-
-	// Flag for the repository
 	listTagsCmd.Flags().StringVarP(&repo, "repo", "r", "", "Repository in format <org>/<repo-name>")
 	listTagsCmd.MarkFlagRequired("repo")
-
-	// Flag for the token (PAT)
 	listTagsCmd.Flags().StringVarP(&token, "token", "t", "", "GitHub Classic PAT (or use GITHUB_TOKEN env var)")
 	listTagsCmd.Flags().StringVarP(&username, "user", "u", "", "Your GitHub username (or use GITHUB_USER env var)")
 	listTagsCmd.MarkFlagRequired("user")
