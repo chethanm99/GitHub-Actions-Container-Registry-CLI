@@ -1,4 +1,3 @@
-// File: cmd/list-tags.go
 package cmd
 
 import (
@@ -56,7 +55,7 @@ func init() {
 	ghcrCmd.AddCommand(listTagsCmd)
 	listTagsCmd.Flags().StringVarP(&repo, "repo", "r", "", "Repository in format <org>/<repo-name>")
 	listTagsCmd.MarkFlagRequired("repo")
-	listTagsCmd.Flags().StringVarP(&token, "token", "t", "", "GitHub Classic PAT (or use GITHUB_TOKEN env var)")
 	listTagsCmd.Flags().StringVarP(&username, "user", "u", "", "Your GitHub username (or use GITHUB_USER env var)")
+	listTagsCmd.Flags().StringVarP(&token, "token", "t", "", "GitHub Classic PAT (or use GITHUB_TOKEN env var)")
 	listTagsCmd.MarkFlagRequired("user")
 }
